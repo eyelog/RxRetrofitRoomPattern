@@ -8,14 +8,16 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+
 @Dao
 public interface ValuteDBDao {
 
     @Query("SELECT * FROM ValuteDB")
-    List<ValuteDB> getAll();
+    Flowable<List<ValuteDB>> getAll();
 
     @Query("SELECT * FROM ValuteDB WHERE id = :id")
-    ValuteDB getById(long id);
+    Flowable<ValuteDB> getById(long id);
 
     @Insert
     void insertAll(List<ValuteDB> valuteDB);
