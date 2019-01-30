@@ -9,6 +9,7 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 @Dao
 public interface ValuteDBDao {
@@ -17,7 +18,7 @@ public interface ValuteDBDao {
     Flowable<List<ValuteDB>> getAll();
 
     @Query("SELECT * FROM ValuteDB WHERE id = :id")
-    Flowable<ValuteDB> getById(long id);
+    Single<ValuteDB> getById(long id);
 
     @Insert
     void insertAll(List<ValuteDB> valuteDB);
@@ -30,5 +31,8 @@ public interface ValuteDBDao {
 
     @Delete
     void delete(ValuteDB valuteDB);
+
+    @Query("DELETE FROM ValuteDB")
+    void deleteAll();
 
 }

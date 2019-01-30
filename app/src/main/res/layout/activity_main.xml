@@ -17,6 +17,13 @@
         android:text="List of Currency"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true" />
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
